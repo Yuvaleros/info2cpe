@@ -148,7 +148,7 @@ def search_cpe(search_term, cpe_db="cpe.db", results_number=1):
     # x = CPE description (str)
     # is_acronym = Bool
     for k, x, is_acronym in partial_results1:
-        r = fuzz.partial_token_set_ratio(search_term, x, force_ascii=True)
+        r = fuzz.token_set_ratio(search_term, x, force_ascii=True)
 
         # Is false positive?
         if any(fil.search(x) is not None for fil in filters):
